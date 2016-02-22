@@ -1,19 +1,19 @@
 {
-  "name": "gulp",
-  "version": "0.0.1",
-  "description": "Starter kit for apps using gulp.",
+  "name": "gulp-basic",
+  "version": "1.0.0",
+  "description": "Build system for simple web apps",
   "main": "index.js",
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chrisf74/gulp.git"
+    "url": "git+https://github.com/chrisf74/gulp-basic.git"
   },
   "author": "chris74",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/chrisf74/gulp/issues"
+    "url": "https://github.com/chrisf74/gulp-basic/issues"
   },
-  "homepage": "https://github.com/chrisf74/gulp#readme",
+  "homepage": "https://github.com/chrisf74/gulp-basic#readme",
   "devDependencies": {
     "connect": "^3.4.1",
     "del": "^2.0.2",

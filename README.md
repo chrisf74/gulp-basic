@@ -1,13 +1,13 @@
-# gulp
-Starter kit for apps using gulp.
+# gulp-basic
+Build system for simple web apps
 
 ## Dependencies
 * `brew install node`
 * `npm install -g gulp`
 
 ## Setup
-* `git clone git@github.com:chrisf74/gulp.git`
-* `cd gulp`
+* `git clone git@github.com:chrisf74/gulp-basic.git`
+* `cd gulp-basic`
 * `npm install`
 
 ## Gulp Tasks
