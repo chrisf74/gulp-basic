@@ -1,71 +1,82 @@
 /**
- * Dependencies
+ * DEPENDENCIES
  */
 var gulpUtil = require('gulp-util');
 var connect = require('gulp-connect');
 var karma = require('karma');
+var argv = require('yargs').argv;
 var gulp = require('gulp');
+var path = require('path');
 var del = require('del');
 
-/**
- * Define build directory
- */
-var buildDir = 'build';
 
 /**
- * Copy
- * Copy unbuilt files to build directory
+ * VARIABLES
  */
-gulp.task('copy', function () {
-	return gulp
-		.src(['src/*'])
-		.pipe(gulp.dest(buildDir));
+var configPath = path.resolve(__dirname, 'config/');
+
+
+/**
+ * TEST TASK
+ * @param -w, -watch
+ * @param -b, -browsers
+ * @public
+ * TODO:
+ */
+gulp.task('test', function (done) {
+	var karmaConfig = {
+		configFile: configPath + '/karma.conf.js'
+	};
+
+	if (!argv.w && !argv.watch) {
+		karmaConfig.singleRun = true;
+	} else {
+		karmaConfig.autoWatch = true;
+	}
+
+	if (argv.b || argv.browsers) {
+		var browserArg = argv.b || argv.browsers;
+		var browserArr = browserArg.split(",");
+		karmaConfig.browsers = browserArr;
+	}
+
+	var doneCalled = false;
+	var server = new karma.Server(karmaConfig, function () {
+  	if (doneCalled) {
+  		return;
+  	} else {
+  		doneCalled = true;
+  		return done();
+  	}
+	});
+
+  server.start();
 });
 
-/**
- * Clean
- * Remove build directory
- */
-gulp.task('clean', function () {
-	return del.sync([buildDir]);
-});
 
 /**
- * Build
- * Build js, css, etc
+ * SERVE TASK
+ * @public
+ * TODO:
  */
-var buildDeps = ['clean','copy'];
-gulp.task('build', buildDeps, function () {
-	// Do build stuff...
-});
-
-/**
- * Watch
- * Watch src files and build on change
- */
-gulp.task('watch', function () {
-	gulp.watch(['src/*'], ['build']);
-});
-
-/**
- * Serve
- * Serve build directory
- */
-var serveDeps = ['build','watch'];
-gulp.task('serve', serveDeps, function () {
-	return connect.server({
-		root: buildDir,
+gulp.task('serve', function (done) {
+	var server = connect.server({
+		root: 'src',
 		host: '0.0.0.0'
 	});
+	done();
 });
 
+
 /**
- * Test
- * Start Karma server
+ * BUILD TASK
+ * @public
+ * TODO:
  */
-var testDeps = [];
-gulp.task('test', testDeps, function (done) {
-	new karma.Server({
-    configFile: __dirname + '/karma.conf.js'
-  }, done).start();
+gulp.task('build', function () {
+	del.sync(['build'], {});
+
+	return gulp
+		.src(['src/*'])
+		.pipe(gulp.dest('build'));
 });

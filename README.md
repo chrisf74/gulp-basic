@@ -11,19 +11,18 @@ Build system for simple web apps
 * `npm install`
 
 ## Gulp Tasks
-* `gulp clean`
-	* Removes `/build`
-* `gulp copy`
-	* Copies files to `/build` directory
-* `gulp build`
-	* Calls `gulp clean`
-	* Calls `gulp copy`
-* `gulp watch`
-	* Calls `gulp build`
-* `gulp serve`
-	* Calls `build`
-	* Calls `watch`
-	* Serves `/build/index.html` at `http://0.0.0.0:8080/`
-* `gulp test`
-	* Automatically runs Jasmine specs in `/test/` through PhantomJS browser via Karma
-	* Visit `http://0.0.0.0:9876` to capture browsers manually
+* `gulp test [options]`
+
+	Runs tests via Karma server through PhantomJS browser
+
+	`-watch` or `-w` re-runs the task when src or test files change
+
+	`-browser` or `-b` captures browsers via launcher plugins. For example: `gulp test -b Chrome,Safari`
+
+* `gulp serve [options]`
+
+	Serves src/index.html at 0.0.0.0:8080
+
+* `gulp build [options]`
+
+	Copies src to build directory
