@@ -1,5 +1,5 @@
-describe('Spec', function () {
-	it('should report truth', function () {
+describe('spec', function () {
+	it('should run', function () {
 		expect(true).toEqual(true);
 	});
 });
