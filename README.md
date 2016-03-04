@@ -19,10 +19,10 @@ Build system for simple web apps
 
 	`-browser` or `-b` captures browsers via launcher plugins. For example: `gulp test -b Chrome,Safari`
 
-* `gulp serve [options]`
+* `gulp serve`
 
 	Serves src/index.html at 0.0.0.0:8080
 
-* `gulp build [options]`
+* `gulp build`
 
 	Copies src to build directory
