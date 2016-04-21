@@ -1,6 +1,7 @@
 /**
  * DEPENDENCIES
  */
+var getKarmaConfig = require('./config/getKarmaConfig');
 var gulpUtil = require('gulp-util');
 var connect = require('gulp-connect');
 var karma = require('karma');
@@ -24,10 +25,7 @@ var configPath = path.resolve(__dirname, 'config/');
  * TODO:
  */
 gulp.task('test', function (done) {
-	var karmaConfig = {
-		configFile: configPath + '/karma.conf.js'
-	};
-
+	var karmaConfig = getKarmaConfig();
 	if (!argv.w && !argv.watch) {
 		karmaConfig.singleRun = true;
 	} else {
