@@ -59,7 +59,7 @@ gulp.task('test', function (done) {
  */
 gulp.task('serve', function (done) {
 	var server = connect.server({
-		root: 'src',
+		root: ['serve','src'],
 		host: '0.0.0.0'
 	});
 	done();
