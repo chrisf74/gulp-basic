@@ -22,7 +22,7 @@ module.exports = function () {
 
 		frameworks: ['jasmine'],
 
-		browsers: ['PhantomJS'],
+		browsers: ['Chrome'],
 
     reporters: ['dots'],
 
