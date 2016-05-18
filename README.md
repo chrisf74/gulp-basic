@@ -13,7 +13,7 @@ Build system for simple web apps
 ## Gulp Tasks
 * `gulp test [options]`
 
-	Runs tests via Karma server through PhantomJS browser
+	Runs tests via Karma server through Chrome browser
 
 	`-watch` or `-w` re-runs the task when src or test files change
 
