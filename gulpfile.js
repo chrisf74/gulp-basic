@@ -2,7 +2,6 @@
  * DEPENDENCIES
  */
 var getKarmaConfig = require('./config/getKarmaConfig');
-var gulpUtil = require('gulp-util');
 var connect = require('gulp-connect');
 var karma = require('karma');
 var argv = require('yargs').argv;
